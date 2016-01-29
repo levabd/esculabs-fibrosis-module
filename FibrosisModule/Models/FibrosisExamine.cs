@@ -23,6 +23,7 @@
     public class FibrosisExamine : INotifyPropertyChanged
     {
         private int                     _id;
+        private string                  _patientIin;
         private int                     _patientId;
         private int                     _physicianId;
         private SensorType              _sensorType;
@@ -33,6 +34,8 @@
         private bool                    _valid;
         private ExpertStatus            _expertStatus;
         private string                  _fibxSource;
+        private string                  _sourceImage;
+        private string                  _processedImage;
         private DateTime?               _createdAt;
         private List<FibrosisMeasure>   _measures;
 
@@ -63,6 +66,51 @@
                 }
 
                 _patientId = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string SourceImage
+        {
+            get { return _sourceImage; }
+            set
+            {
+                if (_sourceImage == value)
+                {
+                    return;
+                }
+
+                _sourceImage = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string ProcessedImage
+        {
+            get { return _processedImage; }
+            set
+            {
+                if (_processedImage == value)
+                {
+                    return;
+                }
+
+                _processedImage = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string PatientIin
+        {
+            get { return _patientIin; }
+            set
+            {
+                if (_patientIin == value)
+                {
+                    return;
+                }
+
+                _patientIin = value;
                 OnPropertyChanged();
             }
         }
@@ -232,6 +280,7 @@
                 OnPropertyChanged();
             }
         }
+
 
         //public string FibrosisStage
         //{
